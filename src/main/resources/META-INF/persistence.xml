@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence version="2.1" xmlns="http://xmlns.jcp.org/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd">
+    <persistence-unit name="Company">
+        <description> Persistence unit for Company </description>
+        <provider>org.hibernate.ejb.HibernatePersistence</provider>
+
+        <properties>
+            <property name="javax.persistence.jdbc.url" value="jdbc:postgresql://localhost:5432/ddbb"/>
+            <!-- <property name="hibernate.hbm2ddl.auto" value="create"></property> -->
+            <property name="javax.persistence.jdbc.driver" value="org.postgresql.Driver"/>
+            <property name="javax.persistence.jdbc.user" value="usuario"/>
+            <property name="javax.persistence.jdbc.password" value="password"/>
+        </properties>
+    </persistence-unit>
+</persistence>
+
+<!--
+Hibernate puede generar automáticamente la base de datos según las configuraciones proporcionadas en el archivo hibernate.cfg.xml o en la clase de configuración de Hibernate. Esto se hace a través de la propiedad hibernate.hbm2ddl.auto. La configuración de esta propiedad determina el comportamiento de Hibernate con respecto a la creación, actualización y eliminación de tablas en la base de datos.
+
+Aquí hay algunos valores comunes para hibernate.hbm2ddl.auto:
+
+- create: Crea la tabla si no existe. Si la tabla ya existe, la elimina y vuelve a crearla. Ten cuidado al usar esto, ya que puede resultar en pérdida de datos.
+
+- update: Actualiza la tabla si existe. Hibernate agrega nuevas columnas y restricciones, pero no elimina las que ya existen. Ten cuidado con este modo en entornos de producción, ya que puede dejar atrás esquemas obsoletos.
+
+- validate: Valida el esquema, pero no realiza cambios en la base de datos. Detecta cualquier discrepancia entre el modelo de datos y el esquema actual.
+
+- create-drop: Similar a create, pero elimina las tablas cuando se cierra la sesión de Hibernate. Útil para pruebas, pero peligroso en entornos de producción debido a la pérdida de datos.
+
+-->
